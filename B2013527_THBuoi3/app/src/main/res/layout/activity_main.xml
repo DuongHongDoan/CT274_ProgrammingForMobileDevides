@@ -25,8 +25,6 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
-    3
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnAddNews"
         android:layout_width="wrap_content"
@@ -35,7 +33,7 @@
         android:layout_marginBottom="16dp"
         android:clickable="true"
         android:focusable="true"
-        android:src="@drawable/ic_launcher_foreground"
+        android:src="@drawable/ic_add_foreground"
         app:backgroundTint="#4CAF50"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

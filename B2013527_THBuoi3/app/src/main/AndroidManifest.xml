@@ -13,6 +13,9 @@
         android:theme="@style/Theme.B2013527_THBuoi3"
         tools:targetApi="31">
         <activity
+            android:name=".UpdateNewsActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddNewsActivity"
             android:exported="false" />
         <activity
