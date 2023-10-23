@@ -57,7 +57,7 @@
         android:id="@+id/btnFinish"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="FINISH"
+        android:text="GO BACK HOME"
         android:textSize="24sp"
         android:textColor="@color/black"
         android:backgroundTint="@color/white"

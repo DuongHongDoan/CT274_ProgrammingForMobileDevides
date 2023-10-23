@@ -122,13 +122,7 @@ class QuizQuestionActivity : AppCompatActivity() {
         binding.tvOptionTwo.text = questionLists[currentPosition-1].optionTwo
         binding.tvOptionThree.text = questionLists[currentPosition-1].optionThree
         binding.tvOptionFour.text = questionLists[currentPosition-1].optionFour
-
-        if(currentPosition==lenList){
-            binding.btnSubmit.text = "FINISH"
-        }
-        else {
-            binding.btnSubmit.text = "SUBMIT"
-        }
+        binding.btnSubmit.text = "SUBMIT"
     }
 
     //ham giup cho cac tv o trang thai bth, khi khong co su kien click len no
