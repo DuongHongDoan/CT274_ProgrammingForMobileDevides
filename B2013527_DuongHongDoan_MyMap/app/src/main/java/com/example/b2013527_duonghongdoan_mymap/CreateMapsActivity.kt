@@ -51,11 +51,13 @@ class CreateMapsActivity : AppCompatActivity(), OnMapReadyCallback {
         }
     }
 
+    //them muc menu rieng tu file xml vao menu chinh
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_create_map, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
+    //xu ly su kien khi click vao muc menu rieng do minh tao ra
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if(item.itemId == R.id.miSave) {
             Log.i(TAG, "Clicked on Save!")
@@ -89,12 +91,14 @@ class CreateMapsActivity : AppCompatActivity(), OnMapReadyCallback {
     override fun onMapReady(googleMap: GoogleMap) {
         mMap = googleMap
 
+        //xoa mot marker khoi ban do khi nguoi dung click vao cua so thong tin cua marker do
         mMap.setOnInfoWindowClickListener { marker ->
             Log.i(TAG, "setOnInfoWindowClickListener - Delete")
             markers.remove(marker)
             marker.remove()
         }
 
+        //hien thi dialog, khi nguoi dung nhan lau vao vi tri nao do tren ban do
         mMap.setOnMapLongClickListener { latLng ->
             Log.i(TAG, "setOnMapLongClickListener")
             val placeFormView = LayoutInflater.from(this).inflate(R.layout.dialog_create_place, null)
