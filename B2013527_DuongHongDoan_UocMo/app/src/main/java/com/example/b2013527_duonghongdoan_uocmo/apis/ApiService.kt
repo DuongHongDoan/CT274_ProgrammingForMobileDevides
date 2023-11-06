@@ -32,7 +32,7 @@ class Constants {
 }
 interface ApiService {
     @POST("users/register")
-    suspend fun registerUser(
+    suspend fun registerUser(//suspend: tu khoa chay bat dong bo
         @Body request: RequestRegisterOrLogin
     ): Response<UserResponse>
 

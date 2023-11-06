@@ -37,6 +37,9 @@ class UpdateFragment : Fragment() {
         fullName = mAppSharedPreferences.getIdUser("fullName").toString()
         content = mAppSharedPreferences.getIdUser("content").toString()
 
+        binding.edtContent.setText(content)
+        binding.edtFullName.setText(fullName)
+
         binding.apply {
             btnSave.setOnClickListener {
                 if(edtFullName.text.isNotEmpty() && edtContent.text.isNotEmpty()) {

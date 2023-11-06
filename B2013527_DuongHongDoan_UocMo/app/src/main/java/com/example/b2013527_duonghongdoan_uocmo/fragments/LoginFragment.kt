@@ -51,8 +51,8 @@ class LoginFragment : Fragment() {
     private fun loginUser(username: String) {
         binding.apply {
             progressBar.visibility = View.VISIBLE
-            CoroutineScope(Dispatchers.IO).launch {
-                withContext(Dispatchers.Main) {
+            CoroutineScope(Dispatchers.IO).launch {//luong duoc chia nho
+                withContext(Dispatchers.Main) {//tuong tac voi giao dien cua minh duoc
                     val resp = Constants.getInstance().loginUser(RequestRegisterOrLogin(username))
                         .body()
                     if(resp != null) {

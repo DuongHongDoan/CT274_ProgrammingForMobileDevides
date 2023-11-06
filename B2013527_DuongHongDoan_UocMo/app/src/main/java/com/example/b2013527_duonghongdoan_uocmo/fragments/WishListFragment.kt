@@ -81,6 +81,7 @@ class WishListFragment : Fragment() {
                     mAppSharedPreferences.putWish("content", content)
                     requireActivity().supportFragmentManager.beginTransaction()
                         .replace(R.id.frame_layout, UpdateFragment())
+                        .commit()
                 }
 
                 override fun onCLickRemove(idWish: String) {

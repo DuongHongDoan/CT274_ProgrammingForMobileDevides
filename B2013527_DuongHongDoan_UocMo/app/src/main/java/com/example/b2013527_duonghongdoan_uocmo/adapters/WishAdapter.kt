@@ -17,7 +17,7 @@ class WishAdapter (
     //truyen interface tu ngoai vao
     private val iClickItemWish: IClickItemWish,
 ): RecyclerView.Adapter<WishAdapter.WishViewHolder>() {
-    class WishViewHolder(val binding: ItemWishBinding): RecyclerView.ViewHolder(binding.root)
+    inner class WishViewHolder(val binding: ItemWishBinding): RecyclerView.ViewHolder(binding.root)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WishViewHolder {
         return WishViewHolder(ItemWishBinding.inflate(LayoutInflater.from(parent.context), parent, false))
@@ -32,6 +32,7 @@ class WishAdapter (
         val wish: Wish = wishList[position]
         holder.binding.tvName.text = wish.name
         holder.binding.tvContent.text = wish.content
+        //load anh nhanh dung thu vien Glide
         Glide.with(context).load(wish.owner.avatar)
             .error(R.drawable.img_blue)
             .into(holder.binding.imgAvatar)

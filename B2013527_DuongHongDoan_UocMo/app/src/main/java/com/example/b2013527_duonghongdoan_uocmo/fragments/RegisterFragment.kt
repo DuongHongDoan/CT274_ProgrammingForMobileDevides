@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import com.example.b2013527_duonghongdoan_uocmo.R
 import com.example.b2013527_duonghongdoan_uocmo.apis.Constants
 import com.example.b2013527_duonghongdoan_uocmo.databinding.FragmentLoginBinding
@@ -32,21 +33,21 @@ class RegisterFragment : Fragment() {
         mAppSharedPreferences = AppSharedPreferences(requireContext())
 
         binding.apply {
-            tvLogin.setOnClickListener{
-                requireActivity().supportFragmentManager.beginTransaction()
-                    .replace(R.id.frame_layout, LoginFragment())
-                    .commit()
-            }
-
             btnRegister.setOnClickListener {
                 if(edtUsername.text.isNotEmpty()) {
                     username = edtUsername.text.toString().trim()
-                    //call api dang nhap tai khoan
+                    //call api dang ky tai khoan
                     registerUser(username)
                 }
                 else {
                     Snackbar.make(it, "Vui lòng nhập mã số sinh viên", Snackbar.LENGTH_LONG).show()
                 }
+            }
+
+            tvLogin.setOnClickListener{
+                requireActivity().supportFragmentManager.beginTransaction()
+                    .replace(R.id.frame_layout, LoginFragment())
+                    .commit()
             }
         }
         // Inflate the layout for this fragment
@@ -62,16 +63,17 @@ class RegisterFragment : Fragment() {
                         .body()
                     if(resp != null) {
                         if(resp.success) {
-                            //dang nhap thanh cong
+                            progressBar.visibility = View.GONE
+                            Toast.makeText(requireContext(), resp.idUser, Toast.LENGTH_SHORT).show()
+                            //dang ky thanh cong
                             //nhan idUser va luu vao sharedPreferences
                             mAppSharedPreferences.putIdUser("idUser", resp.idUser!!)
                             requireActivity().supportFragmentManager.beginTransaction()
                                 .replace(R.id.frame_layout, WishListFragment())
                                 .commit()
-                            progressBar.visibility = View.GONE
                         }
                         else {
-                            //dang nhap that bai
+                            //dang ky that bai
                             tvMessage.text = resp.message
                             tvMessage.visibility = View.VISIBLE
                             progressBar.visibility = View.GONE
